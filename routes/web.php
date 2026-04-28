@@ -1,14 +1,29 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\IncomeCategoryController;
 use App\Http\Controllers\BankController;
-use App\Http\Controllers\AccountController;
+use App\Http\Controllers\DebtController;
+// use App\Http\Controllers\AccountController;
 
-Route::get('/', function () {
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// })->middleware(['auth', 'verified'])->name('welcome');
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
@@ -42,6 +57,38 @@ Route::post('/bank/add',[BankController::class,'store'])->name('bank.store');
 Route::get('/bank/edit/{id}',[BankController::class,'edit'])->name('bank.edit');
 Route::post('/bank/edit/{id}',[BankController::class,'update'])->name('bank.update');
 
-// Account start from here -- 
+// // Account start from here -- 
 Route::get('/account/add',[AccountController::class,'add'])->name('account.add');
 Route::post('/account/add',[AccountController::class,'store'])->name('account.store');
+
+
+// Debt start from here 
+Route::get('/debt',[DebtController::class,'index'])->name('debt');
+Route::get('/debt/add',[DebtController::class,'add'])->name('debt.add');
+Route::post('/debt/add',[DebtController::class,'store'])->name('debt.store');
+Route::get('/debt/edit/{id}',[DebtController::class,'edit'])->name('debt.edit');
+Route::post('/debt/edit/{id}',[DebtController::class,'update'])->name('debt.update');
+
+
+
+
+
+
+
+// Profile start from here
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+});
+
+
+
+
+Route::fallback(function () 
+    {
+        return redirect('welcome');
+    }
+);
+
+require __DIR__.'/auth.php';

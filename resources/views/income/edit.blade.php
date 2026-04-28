@@ -5,7 +5,7 @@
         <h3>Income infomation</h3>
         <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
             <li>
-                <a href="#">
+                <a href="{{ route('home') }}">
                     <div class="text-tiny">Dashboard</div>
                 </a>
             </li>
@@ -13,7 +13,7 @@
                 <i class="icon-chevron-right"></i>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('income') }}">
                     <div class="text-tiny">Income</div>
                 </a>
             </li>

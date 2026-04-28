@@ -2,10 +2,10 @@
 @section('content')
 <div class="main-content-wrap">
     <div class="flex items-center flex-wrap justify-between gap20 mb-27">
-        <h3>Brand infomation</h3>
+        <h3>Expense infomation</h3>
         <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
             <li>
-                <a href="#">
+                <a href="{{ route('home') }}">
                     <div class="text-tiny">Dashboard</div>
                 </a>
             </li>
@@ -13,15 +13,15 @@
                 <i class="icon-chevron-right"></i>
             </li>
             <li>
-                <a href="#">
-                    <div class="text-tiny">Brands</div>
+                <a href="{{ route('expense) }}">
+                    <div class="text-tiny">Expense</div>
                 </a>
             </li>
             <li>
                 <i class="icon-chevron-right"></i>
             </li>
             <li>
-                <div class="text-tiny">New Brand</div>
+                <div class="text-tiny">New Expense</div>
             </li>
         </ul>
     </div>

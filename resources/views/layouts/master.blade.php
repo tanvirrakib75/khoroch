@@ -158,7 +158,7 @@
                                     </ul>
                                 </li> 
                                 
-                                <li class="menu-item">
+                                <!-- <li class="menu-item">
                                     <a href="coupons.html" class="">
                                         <div class="icon"><i class="icon-grid"></i></div>
                                         <div class="text">Coupns</div>
@@ -170,13 +170,28 @@
                                         <div class="icon"><i class="icon-user"></i></div>
                                         <div class="text">User</div>
                                     </a>
+                                </li> -->
+                                <li class="menu-item">
+                                    <a href="{{route('debt')}}" class="">
+                                        <div class="icon"><i class="icon-settings"></i></div>
+                                        <div class="text">Debt</div>
+                                    </a>
                                 </li>
 
                                 <li class="menu-item">
-                                    <a href="settings.html" class="">
+                                    <a href="{{route('profile.edit')}}" class="">
                                         <div class="icon"><i class="icon-settings"></i></div>
-                                        <div class="text">Settings</div>
+                                        <div class="text">Profile Update</div>
                                     </a>
+                                </li>
+                                <li class="menu-item">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); this.closest('form').submit();">
+                                        <div class="text">Logout</div>
+                                    </a>
+                                </form>
                                 </li>
                             </ul>
                         </div>
