@@ -3,12 +3,14 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\IncomeCategoryController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\DebtController;
+use App\Http\Controllers\InvestmentController;
 // use App\Http\Controllers\AccountController;
 
 
@@ -23,9 +25,7 @@ use App\Http\Controllers\DebtController;
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/',[DashboardController::class,'index'])->name('home');
 
 // Expense start from here --
 Route::get('/expense',[ExpenseController::class,'index'])->name('expense');
@@ -70,10 +70,12 @@ Route::get('/debt/edit/{id}',[DebtController::class,'edit'])->name('debt.edit');
 Route::post('/debt/edit/{id}',[DebtController::class,'update'])->name('debt.update');
 
 
-
-
-
-
+//Investment start from here
+Route::get('/investment',[InvestmentController::class,'index'])->name('investment');
+Route::get('/investment/add',[InvestmentController::class,'add'])->name('investment.add');
+Route::post('/invesment/add',[InvestmentController::class,'store'])->name('investment.store');
+Route::get('/investment/edit/{id}',[InvestmentController::class,'edit'])->name('investment.edit');
+Route::post('/investment/edit/{id}',[InvestmentController::class,'update'])->name('investment.update');
 
 // Profile start from here
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

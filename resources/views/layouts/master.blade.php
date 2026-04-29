@@ -177,6 +177,12 @@
                                         <div class="text">Debt</div>
                                     </a>
                                 </li>
+                                 <li class="menu-item">
+                                    <a href="{{route('investment')}}" class="">
+                                        <div class="icon"><i class="icon-settings"></i></div>
+                                        <div class="text">Investment</div>
+                                    </a>
+                                </li>
 
                                 <li class="menu-item">
                                     <a href="{{route('profile.edit')}}" class="">

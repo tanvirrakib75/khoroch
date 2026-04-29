@@ -12,8 +12,9 @@
                                 <i class="icon-shopping-bag"></i>
                             </div>
                             <div>
-                                <div class="body-text mb-2">Total Orders</div>
-                                <h4>3</h4>
+                                <!-- //investment profit -->
+                                <div class="body-text mb-2">Total Profit </div> 
+                                <h4>{{ $totalProfit }}</h4>
                             </div>
                         </div>
                     </div>
