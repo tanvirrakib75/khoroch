@@ -54,44 +54,18 @@
                         </div>
                         <div class="center-item">
                             <ul class="menu-list">
-                                <li class="menu-item has-children">
-                                    <a href="javascript:void(0);" class="menu-item-button">
-                                        <div class="icon"><i class="icon-shopping-cart"></i></div>
-                                        <div class="text">Expense</div>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li class="sub-menu-item">
-                                            <a href="{{route('expense.category.add')}}" class="">
-                                                <div class="text">Add Category</div>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="{{route('expense.add')}}" class="">
-                                                <div class="text">Add Expense</div>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="{{route('expense')}}" class="">
-                                                <div class="text">Expense</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul class="sub-menu">
-                                        
-                                        <li class="sub-menu-item">
-                                            <a href="categories.html" class="">
-                                                <div class="text">Categories</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
                                 <!-- income  -->
                                 <li class="menu-item has-children">
                                     <a href="javascript:void(0);" class="menu-item-button">
-                                        <div class="icon"><i class="icon-shopping-cart"></i></div>
+                                        <div class="icon"><i class="icon-plus-circle"></i></div>
                                         <div class="text">Income</div>
                                     </a>
                                     <ul class="sub-menu">
+                                        <li class="sub-menu-item">
+                                            <a href="{{ route('income') }}" class="">
+                                                <div class="text">All Income</div>
+                                            </a>
+                                        </li>
                                         <li class="sub-menu-item">
                                             <a href="{{ route('income.category') }}" class="">
                                                 <div class="text">Add  Category</div>
@@ -102,11 +76,7 @@
                                                 <div class="text">Add Income</div>
                                             </a>
                                         </li>
-                                        <li class="sub-menu-item">
-                                            <a href="{{ route('income') }}" class="">
-                                                <div class="text">Income</div>
-                                            </a>
-                                        </li>
+                                        
                                     </ul>
                                     <ul class="sub-menu">
                                         
@@ -117,6 +87,38 @@
                                         </li>
                                     </ul>
                                 </li>
+
+
+                                <li class="menu-item has-children">
+                                    <a href="javascript:void(0);" class="menu-item-button">
+                                        <div class="icon"><i class="icon-shopping-cart"></i></div>
+                                        <div class="text">Expense</div>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="sub-menu-item">
+                                            <a href="{{route('expense')}}" class="">
+                                                <div class="text">All Expense</div>
+                                            </a>
+                                        </li>
+                                        <li class="sub-menu-item">
+                                            <a href="{{route('expense.category.add')}}" class="">
+                                                <div class="text">Add Category</div>
+                                            </a>
+                                        </li>
+                                        <li class="sub-menu-item">
+                                            <a href="{{route('expense.add')}}" class="">
+                                                <div class="text">Add Expense</div>
+                                            </a>
+                                        </li>
+                                         <li class="sub-menu-item">
+                                            <a href="categories.html" class="">
+                                                <div class="text">Categories</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    
+                                </li>
+                                
                                 
 
                                 <!-- ORDER -->
@@ -127,6 +129,21 @@
                                     </a>
                                     <ul class="sub-menu">
                                         <li class="sub-menu-item">
+                                            <a href="{{ route('transfer.add') }}" class="">
+                                                <div class="text">Transfer</div>
+                                            </a>
+                                        </li>
+                                        <li class="sub-menu-item">
+                                            <a href="{{ route('withdraw.add') }}" class="">
+                                                <div class="text">Withdraw</div>
+                                            </a>
+                                        </li>
+                                        <li class="sub-menu-item">
+                                            <a href="{{ route('report') }}" class="">
+                                                <div class="text">Report</div>
+                                            </a>
+                                        </li>
+                                        <!-- <li class="sub-menu-item">
                                             <a href="{{ route('bank') }}" class="">
                                                 <div class="text">All Information</div>
                                             </a>
@@ -135,11 +152,11 @@
                                             <a href="{{route('bank.add')}}" class="">
                                                 <div class="text">Add Information</div>
                                             </a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </li> 
 
-                                <li class="menu-item has-children">
+                                <!-- <li class="menu-item has-children">
                                     <a href="javascript:void(0);" class="menu-item-button">
                                         <div class="icon"><i class="icon-file-plus"></i></div>
                                         <div class="text">Accounts</div>
@@ -156,7 +173,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li> 
+                                </li>  -->
                                 
                                 <!-- <li class="menu-item">
                                     <a href="coupons.html" class="">
@@ -173,13 +190,13 @@
                                 </li> -->
                                 <li class="menu-item">
                                     <a href="{{route('debt')}}" class="">
-                                        <div class="icon"><i class="icon-settings"></i></div>
+                                        <div class="icon"><i class="icon-credit-card"></i></div>
                                         <div class="text">Debt</div>
                                     </a>
                                 </li>
                                  <li class="menu-item">
                                     <a href="{{route('investment')}}" class="">
-                                        <div class="icon"><i class="icon-settings"></i></div>
+                                        <div class="icon"><i class="icon-briefcase"></i></div>
                                         <div class="text">Investment</div>
                                     </a>
                                 </li>
@@ -195,6 +212,7 @@
                                     @csrf
                                     <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); this.closest('form').submit();">
+                                        <div class="icon"><i class="icon-log-out"></i></div>
                                         <div class="text">Logout</div>
                                     </a>
                                 </form>

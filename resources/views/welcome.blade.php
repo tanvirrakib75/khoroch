@@ -14,7 +14,7 @@
                             <div>
                                 <!-- //investment profit -->
                                 <div class="body-text mb-2">Total Profit </div> 
-                                <h4>{{ $totalProfit }}</h4>
+                                <h4>0</h4>
                             </div>
                         </div>
                     </div>

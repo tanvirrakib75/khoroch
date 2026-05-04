@@ -9,23 +9,26 @@ use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\IncomeCategoryController;
 use App\Http\Controllers\BankController;
+use App\Http\Controllers\TransferController;
+use App\Http\Controllers\WithdrawController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\DebtController;
 use App\Http\Controllers\InvestmentController;
 // use App\Http\Controllers\AccountController;
 
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+//  Route::get('/', function () {
+//      return view('login');
+//  });
 
-// Route::get('/welcome', function () {
-//     return view('welcome');
-// })->middleware(['auth', 'verified'])->name('welcome');
+ Route::get('/welcome', function () {
+     return view('welcome');
+ })->middleware(['auth', 'verified'])->name('home');
 
 Route::middleware('auth')->group(function () {
 
-Route::get('/',[DashboardController::class,'index'])->name('home');
+// Route::get('/',[DashboardController::class,'index'])->name('home');
 
 // Expense start from here --
 Route::get('/expense',[ExpenseController::class,'index'])->name('expense');
@@ -56,6 +59,23 @@ Route::get('/bank/add',[BankController::class,'add'])->name('bank.add');
 Route::post('/bank/add',[BankController::class,'store'])->name('bank.store');
 Route::get('/bank/edit/{id}',[BankController::class,'edit'])->name('bank.edit');
 Route::post('/bank/edit/{id}',[BankController::class,'update'])->name('bank.update');
+
+
+// Transfer start from here 
+Route::get('/transfer',[TransferController::class,'index'])->name('transfer');
+Route::get('/transfer/add',[TransferController::class,'add'])->name('transfer.add');
+Route::post('/transfer/add',[TransferController::class,'store'])->name('transfer.store');
+
+
+// Withdraw start from here 
+Route::get('/withdraw',[WithdrawController::class,'index'])->name('withdraw');
+Route::get('/withdraw/add',[WithdrawController::class,'add'])->name('withdraw.add');
+Route::post('/withdraw/add',[WithdrawController::class,'store'])->name('withdraw.store');
+
+
+//Report start from here
+Route::get('/report',[ReportController::class,'report'])->name('report');
+
 
 // // Account start from here -- 
 Route::get('/account/add',[AccountController::class,'add'])->name('account.add');

@@ -40,6 +40,7 @@ class ExpenseController extends Controller
         ]);
 
         return redirect(route('expense'))->with('success','your expense has been created');
+        
     }
 
     public function edit ($id)

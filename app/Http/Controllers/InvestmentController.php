@@ -44,8 +44,6 @@ class InvestmentController extends Controller
     public function update(Request $request,$id)
     {
 
-        $investment = Investment::findOrFail($id);
-
         $validateData = $request->validate([
             'bank_name' => 'required',
             'invest_amount' => 'required',
@@ -55,37 +53,15 @@ class InvestmentController extends Controller
             'status' => 'required|in:active,completed'
         ]);
 
-    //আসল লজিক শুরু: 
-    // আমরা চেক করছি—ইউজার কি এখন 'completed' সিলেক্ট করেছে? 
-    // এবং আগে কি এটা 'active' ছিল? (যাতে একই লাভ-ক্ষতি বারবার ইনকাম/এক্সপেন্সে না যায়)
+        $data = Investment::findOrFail($id);
 
-        if ($request->status == 'completed' && $investment->status == 'active'){
-            $result = $request->return_amount - $request->invest_amount;
+        $data->update($validateData);
 
-            if( $result > 0 )
-            // যদি রেজাল্ট ০ এর চেয়ে বড় হয়, মানে লাভ হয়েছে।
-            // তাই Income টেবিলে নতুন ডেটা ইনসার্ট করছি।
-                {
-                    Income::create([
-                        'income_name'        => 'Investment Profit',
-                        'amount' => $result,
-                        'income_description' => 'Investment Profit: '. $investment->bank_name,
-                        'date' => now()
-                    ]);
-                }
-                elseif($result < 0)
-                    {
-                        Expense::create([
-                            'amount' => abs($result),
-                            'note' => 'Investmet Loss: ' . $investment->bank_name,
-                            'date' => now()
-                        ]);
+        return redirect()-back()->with('success','Your investment edited successfully!');
 
-                    }
-        }
         
-        $investment->update($request->all());
-        return redirect(route('investment'))->with('success','Your invesment updated successfully');
+        
+        
 
     }
 }

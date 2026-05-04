@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('transfers', function (Blueprint $table) {
             $table->id();
+            $table->string('from_account');
+            $table->string('from_account_number')->nullable();
+            $table->string('to_account');
+            $table->string('to_account_number')->nullable();
+            $table->decimal('amount',15,2);
+            $table->decimal('charge',15,2)->default(0);
+            $table->string('transfer_type');
+            $table->date('date');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

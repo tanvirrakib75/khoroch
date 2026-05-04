@@ -39,10 +39,6 @@ class IncomeController extends Controller
             'income_category_id' => $request->income_category_id
         ]);
 
-        $account = Account::find($request->account_id);
-        $account->balance = $account->balance + $request->amount;
-        $account->save();
-
         return redirect(route('income.add'))->with('success','your income has been created successfully');
     }
 

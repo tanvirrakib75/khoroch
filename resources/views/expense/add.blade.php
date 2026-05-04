@@ -13,7 +13,7 @@
                 <i class="icon-chevron-right"></i>
             </li>
             <li>
-                <a href="{{ route('expense) }}">
+                <a href="{{ route('expense') }}">
                     <div class="text-tiny">Expense</div>
                 </a>
             </li>
@@ -28,7 +28,7 @@
     <!-- new-category -->
     <div class="wg-box">
         @if(session('success'))
-        <div>{{ session('success') }}</div>
+            <div>{{ session('success') }}</div>
         @endif
         <form class="form-new-product form-style-1" action="{{route('expense.store')}}" method="POST"
             enctype="multipart/form-data">
