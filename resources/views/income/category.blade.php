@@ -14,7 +14,7 @@
                 <i class="icon-chevron-right"></i>
             </li>
             <li>
-                <a href="{{ route('income.category' }}">
+                <a href="{{ route('income.category') }}">
                     <div class="text-tiny">Categories</div>
                 </a>
             </li>

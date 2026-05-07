@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id'); 
+            $table->foreign('user_id')->references('id')->on('users') ->onDelete('cascade');
             $table->foreignId('expense_category_id')->constrained('expense_categories')->onDelete('cascade');
             $table->string('expense_name');
             $table->string('expense_description');

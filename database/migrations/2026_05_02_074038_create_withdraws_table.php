@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('withdraws', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id'); 
+            $table->foreign('user_id')->references('id')->on('users') ->onDelete('cascade');
             $table->string('withdraw_from');
             $table->string('account_number')->nullable();
             $table->decimal('amount',15,2);

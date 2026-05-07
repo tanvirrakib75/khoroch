@@ -19,6 +19,7 @@ class IncomeCategoryController extends Controller
         ]);
 
         IncomeCategory::create([
+            'user_id' => auth()->id(),
             'income_category' => $request->income_category
         ]);
 

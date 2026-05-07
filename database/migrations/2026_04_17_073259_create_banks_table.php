@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('banks', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id'); 
+            $table->foreign('user_id')->references('id')->on('users') ->onDelete('cascade');
             $table->string('bank_name');
             $table->string('bank_account_number')->unique();
             $table->decimal('current_balance');

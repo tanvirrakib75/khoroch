@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class IncomeCategory extends Model
 {
-    protected $fillable = ['income_category'];
+    protected $guarded = [];
 
     public function incomes ()
     {

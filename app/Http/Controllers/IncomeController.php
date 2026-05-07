@@ -11,13 +11,13 @@ class IncomeController extends Controller
 {
     public function index ()
     {
-        $income = Income::with('categories')->orderBy('date','desc')->get();
+        $income = Income::with('categories')->where('user_id',auth()->id())->orderBy('date','desc')->get();
         return view ('income.all',compact('income'));
     }
 
     public function add ()
     {   
-        $income_category = IncomeCategory::all();
+        $income_category = IncomeCategory::where('user_id',auth()->id())->get();
         return view ('income.add',compact('income_category'));
     }
 
@@ -32,6 +32,7 @@ class IncomeController extends Controller
         ]);
 
         Income::create([
+            'user_id' => auth()->id(),
             'income_name' => $request->income_name,
             'income_description' => $request->income_description,
             'amount' => $request->amount,
@@ -48,7 +49,7 @@ class IncomeController extends Controller
     public function edit($id)
     {  
         $income = Income::findOrFail($id);
-        $category = IncomeCategory::all();
+        $category = IncomeCategory::where('user_id',auth()->id())->get();
         return view ('income.edit',compact('income','category'));
     }
 

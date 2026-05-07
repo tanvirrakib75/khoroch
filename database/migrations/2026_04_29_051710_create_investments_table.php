@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('investments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id'); 
+            $table->foreign('user_id')->references('id')->on('users') ->onDelete('cascade');
             $table->string('bank_name');
             $table->decimal('invest_amount',15,2);
             $table->decimal('return_amount',15,2)->default(0);

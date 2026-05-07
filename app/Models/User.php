@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+//models
+use App\Models\Income;
+use App\Models\Expense;
+use App\Models\Bank;
+use App\Models\Debt;
+use App\Models\ExpenseCategroy;
+use App\Models\IncomeCategory;
+use App\Models\Transfer;
+use App\Models\Withdraw;
+
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
@@ -19,6 +29,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'user_id',
         'name',
         'email',
         'password',
@@ -46,4 +57,45 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function incomes()
+    {
+        return $this->hasMany(Income::class);
+    }
+
+    public function expense()
+    {
+        return $this->hasMany(Expense::class);
+    }
+
+    public function bank()
+    {
+        return $this->hasMany(Bank::class);
+    }
+
+    public function debt()
+    {
+        return $this->hasMany(Debt::class);
+    }
+
+    public function expenseCategory()
+    {
+        return $this->hasMany(ExpenceCategroy::class);
+    }
+
+    public function incomeCategory()
+    {
+        return $this->hasMany(IncomeCategroy::class);
+    }
+
+    public function transfer()
+    {
+        return $this->hasMany(Transfer::class);
+    }
+
+    public function withdraw()
+    {
+        return $this->hasMany(Withdraw::class);
+    }
+
 }
