@@ -8,8 +8,9 @@ use App\Models\IncomeCategory;
 class IncomeCategoryController extends Controller
 {
     public function index()
-    {
-        return view ('income.category');
+    {   
+        $income_category = IncomeCategory::where('user_id',auth()->id())->get();
+        return view ('income.category',compact('income_category'));
     }
 
     public function store (Request $request)

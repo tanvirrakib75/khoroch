@@ -12,7 +12,8 @@ class IncomeController extends Controller
     public function index ()
     {
         $income = Income::with('categories')->where('user_id',auth()->id())->orderBy('date','desc')->get();
-        return view ('income.all',compact('income'));
+        $income_category = IncomeCategory::where('user_id',auth()->id())->get();
+        return view ('income.all',compact('income','income_category'));
     }
 
     public function add ()
@@ -40,7 +41,7 @@ class IncomeController extends Controller
             'income_category_id' => $request->income_category_id
         ]);
 
-        return redirect(route('income.add'))->with('success','your income has been created successfully');
+        return redirect(route('income'))->with('success','your income has been created successfully');
     }
 
 

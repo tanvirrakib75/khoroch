@@ -9,7 +9,7 @@ class BankController extends Controller
 {
     public function index()
     {
-        $data = Bank::all();
+        $data = Bank::where('user_id',auth()->id())->get();
         return view ('bank.all',compact('data'));
     }
 
@@ -27,6 +27,7 @@ class BankController extends Controller
         ]);
 
         Bank::create([
+            'user_id' => auth()->id(),
             'bank_name' => $request->bank_name,
             'bank_account_number' => $request->bank_account_number,
             'current_balance' => $request->current_balance

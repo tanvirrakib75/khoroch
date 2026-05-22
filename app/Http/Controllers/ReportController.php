@@ -10,7 +10,7 @@ class ReportController extends Controller
 {
     public function report()
     {
-        $transfer = Transfer::all()->map(function ($item){
+        $transfer = Transfer::where('user_id',auth()->id())->get()->map(function ($item){
             return [
                 'date' => $item->date,
                 'type' => 'Transfer',
@@ -21,7 +21,7 @@ class ReportController extends Controller
             ];
         });
 
-        $withdraw = Withdraw::all()->map(function ($item){
+        $withdraw = Withdraw::where('user_id',auth()->id())->get()->map(function ($item){
             return [
                 'date' => $item->date,
                 'type' => 'Withdraw',

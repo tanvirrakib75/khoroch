@@ -38,7 +38,7 @@ Route::get('/expense/edit/{id}',[ExpenseController::class,'edit'])->name('expens
 Route::post('/expense/edit/{id}',[ExpenseController::class,'update'])->name('expense.update');
 
 // expense category start from here -- 
-Route::get('/expense/category/add',[ExpenseCategoryController::class,'index'])->name('expense.category.add'); 
+Route::get('/expense/category/add',[ExpenseCategoryController::class,'index'])->name('expense.category'); 
 Route::post('/expense/category/add',[ExpenseCategoryController::class,'store'])->name('expense.category.store'); 
 
 // Income start form here --

@@ -9,7 +9,7 @@ class DebtController extends Controller
 {
     public function index()
     {
-        $data = Debt::orderBy('id','DESC')->get();
+        $data = Debt::where('user_id',auth()->id())->orderBy('id','DESC')->get();
         return view ('debt.all',compact('data'));
     }
 
@@ -27,6 +27,8 @@ class DebtController extends Controller
             'type' => 'required|in:take,give',
             'note' => 'nullable|string:'
         ]);
+
+        $validateData['user_id'] = auth()->id();
 
         $validateData['status'] = $request->has('status') ? 1 : 0;
 

@@ -9,7 +9,7 @@ class TransferController extends Controller
 {
     public function index()
     {
-        $transfer = Transfer::orderBy('id','DESC')->get();
+        $transfer = Transfer::where('user_id',auth()->id())->orderBy('id','DESC')->get();
         return view('transfer.all',compact('transfer'));
     }
 
@@ -31,6 +31,8 @@ class TransferController extends Controller
             'date' => 'required',
             'note' => 'nullable'
         ]);
+
+        $validateData['user_id'] = auth()->id();
 
         Transfer::create($validateData);
 

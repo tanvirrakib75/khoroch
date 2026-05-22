@@ -65,23 +65,12 @@
                                             <a href="{{ route('income') }}" class="">
                                                 <div class="text">All Income</div>
                                             </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="{{ route('income.category') }}" class="">
-                                                <div class="text">Add  Category</div>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="{{ route('income.add') }}" class="">
-                                                <div class="text">Add Income</div>
-                                            </a>
-                                        </li>
-                                        
+                                        </li>                                  
                                     </ul>
                                     <ul class="sub-menu">
                                         
                                         <li class="sub-menu-item">
-                                            <a href="categories.html" class="">
+                                            <a href="{{ route('income.category') }}" class="">
                                                 <div class="text">Categories</div>
                                             </a>
                                         </li>
@@ -100,18 +89,8 @@
                                                 <div class="text">All Expense</div>
                                             </a>
                                         </li>
-                                        <li class="sub-menu-item">
-                                            <a href="{{route('expense.category.add')}}" class="">
-                                                <div class="text">Add Category</div>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="{{route('expense.add')}}" class="">
-                                                <div class="text">Add Expense</div>
-                                            </a>
-                                        </li>
                                          <li class="sub-menu-item">
-                                            <a href="categories.html" class="">
+                                            <a href="{{route('expense.category')}}" class="">
                                                 <div class="text">Categories</div>
                                             </a>
                                         </li>
@@ -128,6 +107,11 @@
                                         <div class="text">Bank</div>
                                     </a>
                                     <ul class="sub-menu">
+                                        <li class="sub-menu-item">
+                                            <a href="{{ route('bank') }}" class="">
+                                                <div class="text">All Bank</div>
+                                            </a>
+                                        </li>
                                         <li class="sub-menu-item">
                                             <a href="{{ route('transfer.add') }}" class="">
                                                 <div class="text">Transfer</div>

@@ -13,7 +13,7 @@
                 <i class="icon-chevron-right"></i>
             </li>
             <li>
-                <div class="text-tiny">All Wallet Information</div>
+                <div class="text-tiny">All Bank Information</div>
             </li>
         </ul>
     </div>
@@ -31,7 +31,10 @@
                     </div>
                 </form>
             </div>
-            <a class="tf-button style-1 w208" href="{{ route('bank.add') }}"><i class="icon-plus"></i>Add new</a>
+            
+            <button type="button" class="tf-button style-1 w208" data-bs-toggle="modal" data-bs-target="#bankModal">
+                Add New
+            </button>
         </div>
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
@@ -70,7 +73,7 @@
                             </div>
                         </td>
                     </tr>
-                   @endforeach
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -82,4 +85,66 @@
         </div>
     </div>
 </div>
+
+
+<!-- Add Modal Start From Here  -->
+
+<div class="modal fade" id="bankModal" tabindex="-1" aria-labelledby="bankModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bankModalLabel">Add New Bank</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form class="form-new-product form-style-1" action="{{ route('bank.store') }}" method="POST"
+                enctype="multipart/form-data">
+                @csrf
+                <fieldset class="name mt-2">
+                    <div class="body-title">Wallet Name <span class="tf-color-1">*</span></div>
+                    <input class="flex-grow" type="text" placeholder="bKash/Nagad/Bank/Rocket Name" name="bank_name"
+                        value="{{ old('bank_name')}}" tabindex="0" value="" aria-required="true" required="">
+                </fieldset>
+                <fieldset class="name">
+                    <div class="body-title">Wallet Number <span class="tf-color-1">*</span></div>
+                    <input class="flex-grow" type="text" placeholder="Wallet number" name="bank_account_number"
+                        value="{{ old('bank_account_number')}}" tabindex="0" value="" aria-required="true" required="">
+                </fieldset>
+                <fieldset class="name">
+                    <div class="body-title">Current Balance <span class="tf-color-1">*</span></div>
+                    <input class="flex-grow" type="text" placeholder="Current Balance" name="current_balance"
+                        value="{{ old('current_balance')}}" tabindex="0" value="" aria-required="true" required="">
+                </fieldset>
+                <div class="bot">
+                    <div></div>
+                    <button class="tf-button w208" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+.modal-backdrop {
+    display: none !important;
+    /* এটি বুটস্ট্র্যাপের সেই কালো পর্দাটি মুছে দেবে */
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.5);
+    /* মোডাল ওপেন হলে পুরো স্ক্রিনে হালকা কালো শেড আসবে */
+}
+
+.modal-content {
+    padding: 10px 20px !important;
+}
+
+.modal-dialog {
+    max-width: 60% !important;
+}
+
+.modal-header {
+    padding: 1rem 0rem;
+}
+</style>
 @endsection

@@ -9,7 +9,7 @@ class WithdrawController extends Controller
 {
     public function index()
     {
-        $withdraw = Withdraw::orderBy('id','DESC')->get();
+        $withdraw = Withdraw::where('user_id',auth()->id())->orderBy('id','DESC')->get();
         return view('withdraw.all',compact('withdraw'));
     }
 
@@ -28,6 +28,8 @@ class WithdrawController extends Controller
             'date' => 'required',
             'note' => 'nullable'
         ]);
+
+        $validateData['user_id'] = auth()->id();
 
         Withdraw::create($validateData);
 

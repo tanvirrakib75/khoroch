@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id'); 
             $table->foreign('user_id')->references('id')->on('users') ->onDelete('cascade');
-            $table->string('income_category')->unique();
+            $table->string('income_category');
+            $table->unique(['user_id','income_category']);
             $table->timestamps();
         });
     }

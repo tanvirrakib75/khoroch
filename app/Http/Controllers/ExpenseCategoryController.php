@@ -9,7 +9,8 @@ class ExpenseCategoryController extends Controller
 {
     public function index()
     {
-        return view ('expense.category');
+        $category = ExpenseCategory::where('user_id',auth()->id())->get();
+        return view ('expense.category',compact('category'));
     }
 
     public function store(Request $request)
@@ -19,6 +20,7 @@ class ExpenseCategoryController extends Controller
         ]);
 
         ExpenseCategory::create([
+            'user_id' => auth()->id(),
             'expense_category' => $request->expense_category
         ]);
 
