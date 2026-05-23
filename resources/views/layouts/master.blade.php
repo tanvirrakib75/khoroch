@@ -113,12 +113,12 @@
                                             </a>
                                         </li>
                                         <li class="sub-menu-item">
-                                            <a href="{{ route('transfer.add') }}" class="">
+                                            <a href="{{ route('transfer') }}" class="">
                                                 <div class="text">Transfer</div>
                                             </a>
                                         </li>
                                         <li class="sub-menu-item">
-                                            <a href="{{ route('withdraw.add') }}" class="">
+                                            <a href="{{ route('withdraw') }}" class="">
                                                 <div class="text">Withdraw</div>
                                             </a>
                                         </li>

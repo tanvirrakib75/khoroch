@@ -183,28 +183,4 @@
         </div>
     </div>
 </div>
-
-<style>
-.modal-backdrop {
-    display: none !important;
-    /* এটি বুটস্ট্র্যাপের সেই কালো পর্দাটি মুছে দেবে */
-}
-
-.modal {
-    background: rgba(0, 0, 0, 0.5);
-    /* মোডাল ওপেন হলে পুরো স্ক্রিনে হালকা কালো শেড আসবে */
-}
-
-.modal-content {
-    padding: 10px 20px !important;
-}
-
-.modal-dialog {
-    max-width: 60% !important;
-}
-
-.modal-header {
-    padding: 1rem 0rem;
-}
-</style>
 @endsection

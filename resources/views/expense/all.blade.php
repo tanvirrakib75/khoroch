@@ -34,7 +34,8 @@
             <button type="button" class="tf-button style-1 w208" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Add New Expense
             </button>
-            <button type="button" class="tf-button style-1 w208" data-bs-toggle="modal" data-bs-target="#exampleModalTwo">
+            <button type="button" class="tf-button style-1 w208" data-bs-toggle="modal"
+                data-bs-target="#exampleModalTwo">
                 Add Expense Category
             </button>
         </div>
@@ -174,6 +175,18 @@
                                     </select>
                                 </div>
                             </fieldset>
+                            <fieldset class="brand">
+                                    <div class="body-title mb-10">Select Bank/Wallet <span class="tf-color-1">*</span>
+                                    </div>
+                                    <div class="select">
+                                        <select class="" name="bank_id">
+                                            <option value="">-- Select Bank --</option>
+                                           @foreach($banks as $data)
+                                            <option value="{{ $data->id }}">{{ $data->bank_name }} Bal: {{ $data->current_balance }}</option>
+                                           @endforeach
+                                        </select>
+                                    </div>
+                                </fieldset>
                             <fieldset class="name">
                                 <div class="body-title">Expense date <span class="tf-color-1">*</span></div>
                                 <input class="flex-grow" type="date" placeholder="Brand name" name="expense_date"
@@ -266,27 +279,4 @@
         </div>
     </div>
 </div>
-<style>
-.modal-backdrop {
-    display: none !important;
-    /* এটি বুটস্ট্র্যাপের সেই কালো পর্দাটি মুছে দেবে */
-}
-
-.modal {
-    background: rgba(0, 0, 0, 0.5);
-    /* মোডাল ওপেন হলে পুরো স্ক্রিনে হালকা কালো শেড আসবে */
-}
-
-.modal-content {
-    padding: 10px 20px !important;
-}
-
-.modal-dialog {
-    max-width: 60% !important;
-}
-
-.modal-header {
-    padding: 1rem 0rem;
-}
-</style>
 @endsection

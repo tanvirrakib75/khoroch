@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id'); 
             $table->foreign('user_id')->references('id')->on('users') ->onDelete('cascade');
             $table->foreignId('expense_category_id')->constrained('expense_categories')->onDelete('cascade');
+            $table->foreignId('bank_id')->constrained('banks')->onDelete('cascade');
             $table->string('expense_name');
             $table->string('expense_description');
             $table->decimal('expense_amount',10,2);
